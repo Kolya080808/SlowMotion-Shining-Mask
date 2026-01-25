@@ -7,22 +7,22 @@ from Crypto.Cipher import AES
 from PIL import Image
 
 
-MASK_ADDRESS = "1D:BD:F6:A9:9B:23"
+MASK_ADDRESS = "1D:BD:F6:A9:9B:23" # CHANGE THIS
 
 FRAMES_DIR = "frames-video"
 FILENAME_TEMPLATE = "out{:05d}.jpg"
 START_FRAME = 1
 END_FRAME = 6572
 
-WORKING_SLOT_ID = 7
+WORKING_SLOT_ID = 7 # CHANGE THIS
 
 IMG_W = 44
 IMG_H = 58
 
-DELAY = 0.05
+DELAY = 0.05 # CHANGE THIS
 
-DISPLAY_CYCLE = 7.0
-DISPLAY_CORRECTION = 0.009567
+DISPLAY_CYCLE = 7.0 # CHANGE THIS 
+DISPLAY_CORRECTION = 0.009567 # CHANGE THIS
 
 UUID_CMD  = "d44bc439-abfd-45a2-b575-925416129600"
 UUID_DATA = "d44bc439-abfd-45a2-b575-92541612960a"
@@ -150,5 +150,6 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
 
