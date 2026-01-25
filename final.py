@@ -22,7 +22,7 @@ IMG_H = 58
 DELAY = 0.05
 
 DISPLAY_CYCLE = 7.0
-DISPLAY_CORRECTION = 0.00957
+DISPLAY_CORRECTION = 0.009567
 
 UUID_CMD  = "d44bc439-abfd-45a2-b575-925416129600"
 UUID_DATA = "d44bc439-abfd-45a2-b575-92541612960a"
@@ -150,4 +150,5 @@ async def main():
 
 if __name__ == "__main__":
     asyncio.run(main())
+
 
