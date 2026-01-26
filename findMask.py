@@ -14,63 +14,63 @@ async def main():
     devices_without_mask = {}
     devices_with_mask = {}
 
-    print("Сканирование при выключенной маске...")
+    print("Scanning with turned off mask...")
     devices = await BleakScanner.discover(timeout=5.0)
     for d in devices:
         devices_without_mask[d.address] = d.name or ""
 
-    print(f"Найдено устройств: {len(devices_without_mask)}")
+    print(f"Found devices: {len(devices_without_mask)}")
     print("\n")
-    input("Включите маску и нажмите Enter...")
+    input("Turn on the mask and press Enter...")
     print("\n")
 
-    print("Сканирование при включенной маске...")
+    print("Scanning with turned on mask...")
     devices = await BleakScanner.discover(timeout=5.0)
     for d in devices:
         devices_with_mask[d.address] = d.name or ""
 
-    print(f"Найдено устройств: {len(devices_with_mask)}")
-    print("\nКандидаты (устройства, появившиеся после включения маски):")
+    print(f"Found devices: {len(devices_with_mask)}")
+    print("\nCandidates:")
     candidates = []
     for address, name in devices_with_mask.items():
         if address not in devices_without_mask:
             print(f"  {address} ({name})")
             candidates.append((address, name))
 
-    print(f"\nНайдено кандидатов: {len(candidates)}")
+    print(f"\Found candidates: {len(candidates)}")
 
     if not candidates:
-        print("❌ Не найдено новых устройств после включения маски")
+        print("❌ Not found.")
 
-    print("\nПроверка кандидатов подключением...\n")
+    print("\nChecking with names...\n")
 
 
     for address, name in candidates:
-        print(f"Проверяем устройство: {address} ({name})...")
+        print(f"Cheking candidate: {address} ({name})...")
 
         if await is_mask(name):
             print("\n==============================")
-            print("🎯 НАЙДЕНА МАСКА")
-            print(f"Адрес: {address}")
-            print(f"Имя: {name}")
+            print("🎯 FOUND MASK!!")
+            print(f"Address: {address}")
+            print(f"Name: {name}")
             print("==============================")
             return
         else:
-            print(f"  ✗ Устройство '{name}' не начинается с MASK")
+            print(f"  ✗ Device '{name}' does not start with MASK")
 
 
-    print("\nАльтернативная проверка всех устройств из второго сканирования...")
+    print("\nAlternative check...")
     for address, name in devices_with_mask.items():
-        print(f"Проверяем: {address} ({name})...")
+        print(f"Checking: {address} ({name})...")
         if await is_mask(name):
             print("\n==============================")
-            print("🎯 НАЙДЕНА МАСКА (в общем списке)")
-            print(f"Адрес: {address}")
-            print(f"Имя: {name}")
+            print("🎯 FOUND MAK!! (in general list)")
+            print(f"Address: {address}")
+            print(f"Name: {name}")
             print("==============================")
             return
 
-    print("\n❌ Маска не найдена")
+    print("\n❌ Not found.")
 
 
 if __name__ == "__main__":
