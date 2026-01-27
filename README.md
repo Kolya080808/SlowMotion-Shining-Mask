@@ -46,4 +46,4 @@ And after that, you paste the mask address to the final script, adjust some sett
 
 - [YouTube](https://youtu.be/Xaw0n_ccmGc)
 - [Telegram Channel](https://bezhopasnik.t.me) ([this post and the post after it](https://t.me/bezhopasnik/2163))
-- [Reddit](https://www.reddit.com/r/badapple/comments/1qnnvxr/bad_apple_but_played_on_shining_mask/)
+- [Reddit](https://www.reddit.com/r/badapple/comments/1qnnvxr/bad_apple_but_played_on_shining_mask/) (not working, got shadowban)
